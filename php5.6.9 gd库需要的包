@@ -26,6 +26,7 @@ make && make install
 要使用的话还要加上 --with-php-config=/user/local/php/bin/php-config 
 原案例正是发现config文件损坏，phpize编译无效，利用重装php不需要写config直接带入with--gd
 碰巧装好的，
-且不需要引入gd.so文件路径到extension 里面，永久有效，故应该直接和Php一块装。
+且之前三个gd.so文件都被删除，不需要引入gd.so文件路径到php.ini 里面的extension=，
+永久有效，故应该直接和Php一块装。
 
 
