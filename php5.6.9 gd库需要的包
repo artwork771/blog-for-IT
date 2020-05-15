@@ -3,10 +3,15 @@ jpegsrc.v9d.tar.gz
 libpng-1.6.37.tar.gz 
 zlib-1.2.11
 
+zlib-1.2.11           ./configure  --prefix=/usr/local/zlib    make && make install
 freetype-2.10.0      ./configure  --prefix=/usr/local/freetype    make && make install
 jpegsrc.v9d.tar.gz   ./configure  --prefix=/usr/local/jpeg    make && make install
 libpng-1.6.37.tar.gz  ./configure  --prefix=/usr/local/png    make && make install
-zlib-1.2.11           ./configure  --prefix=/usr/local/zlib    make && make install
+
+png编译提示找不到zlib.h时，编译zlib时要加上 
+export LDFLAGS="-L/user/local/zlib/lib"
+export CPPFLAGS="-I/user/local/zlib/include"
+
 
 /usr/local/src/php-5.6.9      
 ./configure    --with-png-dir=/usr/local/png   --with-zlib-dir=/usr/local/zlib  /
