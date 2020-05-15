@@ -3,5 +3,21 @@ jpegsrc.v9d.tar.gz
 libpng-1.6.37.tar.gz 
 zlib-1.2.11
 
-最终和with--gd选项内置的gd
-库一起编译到php里面去统一安装Php5.6.9，不建议再另外编译安装gd.so因为出错概率大。
+freetype-2.10.0      ./configure  --prefix=/usr/local/freetype    make && make install
+jpegsrc.v9d.tar.gz   ./configure  --prefix=/usr/local/jpeg    make && make install
+libpng-1.6.37.tar.gz  ./configure  --prefix=/usr/local/png    make && make install
+zlib-1.2.11           ./configure  --prefix=/usr/local/zlib    make && make install
+
+/usr/local/src/php-5.6.9      
+./configure    --with-png-dir=/usr/local/png   --with-zlib-dir=/usr/local/zlib  /
+             --with-freetype-dir=/usr/local/freetype     --with-jpeg-dir=/usr/local/jpeg     /
+             with--gd
+make && make install
+
+
+
+一起编译到php里面去统一安装Php5.6.9，
+不建议再另外在/usr/local/src/php-5.6.9/ext/gd 目录下使用phpize 编译安装gd.so ,因为出错概率大。
+要使用的话还要加上 --with-php-config=/user/local/php/bin/php-config
+
+
